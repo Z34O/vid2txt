@@ -50,11 +50,16 @@ while True:
 
     elif choice == "play":
         playvid = input("asv name: ")
+	frames = input("Frames to play: ")
 
-        for frame in os.listdir(playvid):
-            file = open(playvid + "/" + frame, "r")
+	os.chdir(playvid)
+
+        for frame in range(0, int(frames)):
+            file = open(str(frame) + ".txt", "r")
             print(file.read())
-            os.system('cls')
+            os.system('clear')
+
+	os.chdir('..')
 
     elif choice == "exit":
         break
